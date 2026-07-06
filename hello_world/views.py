@@ -19,3 +19,11 @@ def index():
 @app.route('/outputs')
 def supported_output():
     return ", ".join(SUPPORTED)
+
+from flask import jsonify, request
+from hello_world.formater import plain_uppercase
+
+@app.route('/msg')
+def msg():
+    message = request.args.get('msg', '')
+    return jsonify({"msg": plain_uppercase(message)})
