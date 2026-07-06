@@ -22,8 +22,3 @@ def supported_output():
 
 from flask import jsonify, request
 from hello_world.formater import plain_uppercase
-
-@app.route('/msg')
-def msg():
-    message = request.args.get('msg', '')
-    return jsonify({"msg": plain_uppercase(message)})
